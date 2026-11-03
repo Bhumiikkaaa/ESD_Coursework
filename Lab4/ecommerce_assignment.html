@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="E-commerce homepage lab: semantic HTML and responsive CSS.">
+
+    <title>Amazon.com. Spend less. Smile more.</title>
+
+    <link rel="icon" href="./amazon_logo.png" type="image/png">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+    <link rel="stylesheet" href="./style_ecommerce_assignment.css">
+</head>
+
+<body id="top">
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+
+        <!-- SECTION 1 - Top belt: logo, location, search, language, account, orders, cart -->
+        <div class="nav-belt" data-section="1">
+
+            <!-- Logo -->
+            <a href="#" aria-label="Amazon home" class="belt-logo">
+                <img src="./amazon_logo.png" width="1920" height="1080" alt="Amazon" class="logo-img">
+            </a>
+
+            <!-- Deliver to -->
+            <a href="#" class="belt-item deliver">
+                <span class="belt-top">Deliver to</span>
+                <span class="belt-bold"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> India</span>
+            </a>
+
+            <!-- Search bar -->
+            <form role="search" class="search-form">
+                <label for="search-category" class="visually-hidden">Search category</label>
+                <select id="search-category" class="search-category">
+                    <option>All</option>
+                    <option>Electronics</option>
+                    <option>Books</option>
+                    <option>Clothing</option>
+                    <option>Home</option>
+                </select>
+
+                <label for="search-input" class="visually-hidden">Search Amazon</label>
+                <input id="search-input" type="search" class="search-input" placeholder="Search Amazon">
+
+                <button type="submit" class="search-submit" aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                </button>
+            </form>
+
+            <!-- Language -->
+            <a href="#" class="belt-item lang" aria-label="Change language, currently English">
+                <span class="belt-top">EN</span>
+                <i class="fa-solid fa-caret-down" aria-hidden="true"></i>
+            </a>
+
+            <!-- Account -->
+            <a href="#" class="belt-item">
+                <span class="belt-top">Hello, sign in</span>
+                <span class="belt-bold">Account &amp; Lists</span>
+            </a>
+
+            <!-- Returns & Orders -->
+            <a href="#" class="belt-item">
+                <span class="belt-top">Returns</span>
+                <span class="belt-bold">&amp; Orders</span>
+            </a>
+
+            <!-- Cart -->
+            <a href="#" class="belt-item cart" aria-label="Cart, 0 items">
+                <span class="cart-count" aria-hidden="true">0</span>
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                <span class="belt-bold">Cart</span>
+            </a>
+
+        </div>
+
+        <!-- SECTION 2 - Secondary navigation: All menu, links, promo -->
+        <nav class="nav-main" data-section="2" aria-label="Secondary navigation">
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link nav-all"><i class="fa-solid fa-bars" aria-hidden="true"></i> <strong>All</strong></a></li>
+                <li><a href="#" class="nav-link">Today's Deals</a></li>
+                <li><a href="#" class="nav-link">Customer Service</a></li>
+                <li><a href="#" class="nav-link">Registry</a></li>
+                <li><a href="#" class="nav-link">Gift Cards</a></li>
+                <li><a href="#" class="nav-link">Sell</a></li>
+                <li class="nav-promo"><a href="#" class="nav-link"><strong>Shop deals in Electronics</strong></a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main id="main">
+
+        <!-- SECTION 3 - Hero banner: full-width image that fades into the page -->
+        <section class="hero" data-section="3">
+            <img src="./hero_image.jpg" width="3000" height="1200" alt="" class="hero-img" fetchpriority="high">
+        </section>
+
+        <!-- SECTION 4 - Page content: notice, category cards, best-seller shelf -->
+        <section class="page-content" data-section="4">
+
+            <!-- Notice bar -->
+            <p class="notice-bar">
+                You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery.
+                <a href="https://www.amazon.in/">Click here to go to amazon.in</a>
+            </p>
+
+            <!-- Category cards -->
+            <div class="card-grid">
+
+                <article class="card">
+                    <h2 class="card-title">Clothes</h2>
+                    <img src="./box1_image.jpg" width="372" height="232" alt="Clothes" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">clothes</span></a>
+                </article>
+
+                <article class="card">
+                    <h2 class="card-title">Health &amp; Personal Care</h2>
+                    <img src="./box2_image.jpg" width="758" height="608" alt="Health and Personal Care products" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">health and personal care</span></a>
+                </article>
+
+                <article class="card">
+                    <h2 class="card-title">Furniture</h2>
+                    <img src="./box3_image.jpg" width="372" height="232" alt="Furniture" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">furniture</span></a>
+                </article>
+
+                <article class="card">
+                    <h2 class="card-title">Electronics</h2>
+                    <img src="./box4_image.jpg" width="392" height="400" alt="Electronics" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">electronics</span></a>
+                </article>
+
+                <article class="card">
+                    <h2 class="card-title">Beauty Picks</h2>
+                    <img src="./box5_image.jpg" width="758" height="608" alt="Beauty products" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">beauty picks</span></a>
+                </article>
+
+                <article class="card">
+                    <h2 class="card-title">Pet Care</h2>
+                    <img src="./box6_image.jpg" width="758" height="608" alt="Pet care products" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">pet care</span></a>
+                </article>
+
+                <article class="card">
+                    <h2 class="card-title">New Arrivals in Toys</h2>
+                    <img src="./box7_image.jpg" width="758" height="608" alt="New toy arrivals" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">new arrivals in toys</span></a>
+                </article>
+
+                <article class="card">
+                    <h2 class="card-title">Discover Fashion Trends</h2>
+                    <img src="./box8_image.jpg" width="758" height="608" alt="Fashion trends" loading="lazy" class="card-img">
+                    <a href="#" class="card-link">See more <span class="visually-hidden">fashion trends</span></a>
+                </article>
+
+            </div>
+
+            <!-- Best-seller shelf -->
+            <section class="shelf" aria-label="Best Sellers in Home and Lifestyle">
+                <h2 class="shelf-title">Best Sellers in Home &amp; Lifestyle</h2>
+                <div class="shelf-row">
+                    <img src="./box1_image.jpg" width="372" height="232" alt="Best seller 1" loading="lazy" class="shelf-img">
+                    <img src="./box2_image.jpg" width="758" height="608" alt="Best seller 2" loading="lazy" class="shelf-img">
+                    <img src="./box3_image.jpg" width="372" height="232" alt="Best seller 3" loading="lazy" class="shelf-img">
+                    <img src="./box4_image.jpg" width="392" height="400" alt="Best seller 4" loading="lazy" class="shelf-img">
+                    <img src="./box5_image.jpg" width="758" height="608" alt="Best seller 5" loading="lazy" class="shelf-img">
+                    <img src="./box6_image.jpg" width="758" height="608" alt="Best seller 6" loading="lazy" class="shelf-img">
+                    <img src="./box7_image.jpg" width="758" height="608" alt="Best seller 7" loading="lazy" class="shelf-img">
+                    <img src="./box8_image.jpg" width="758" height="608" alt="Best seller 8" loading="lazy" class="shelf-img">
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <!-- SECTION 5 - Footer 1: back to top, link columns, logo and locale -->
+        <div class="footer-nav" data-section="5">
+
+            <!-- Back to top -->
+            <a href="#top" class="back-to-top">Back to top</a>
+
+            <!-- Link columns -->
+            <div class="footer-columns">
+
+                <div class="footer-col">
+                    <h2 class="footer-col-title">Get to Know Us</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About Amazon</a></li>
+                        <li><a href="#">Investor Relations</a></li>
+                        <li><a href="#">Amazon Devices</a></li>
+                        <li><a href="#">Amazon Science</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h2 class="footer-col-title">Make Money with Us</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Sell products on Amazon</a></li>
+                        <li><a href="#">Sell on Amazon Business</a></li>
+                        <li><a href="#">Sell apps on Amazon</a></li>
+                        <li><a href="#">Become an Affiliate</a></li>
+                        <li><a href="#">Advertise Your Products</a></li>
+                        <li><a href="#">Self-Publish with Us</a></li>
+                        <li><a href="#">Host an Amazon Hub</a></li>
+                        <li><a href="#">See More Make Money with Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h2 class="footer-col-title">Amazon Payment Products</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Amazon Business Card</a></li>
+                        <li><a href="#">Shop with Points</a></li>
+                        <li><a href="#">Reload Your Balance</a></li>
+                        <li><a href="#">Amazon Currency Converter</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h2 class="footer-col-title">Let Us Help You</h2>
+                    <ul class="footer-links">
+                        <li><a href="#">Amazon and COVID-19</a></li>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href="#">Your Orders</a></li>
+                        <li><a href="#">Shipping Rates &amp; Policies</a></li>
+                        <li><a href="#">Returns &amp; Replacements</a></li>
+                        <li><a href="#">Manage Your Content and Devices</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Divider + logo + locale -->
+            <div class="footer-bottom">
+                <img src="./amazon_logo.png" width="1920" height="1080" alt="Amazon" class="footer-logo" loading="lazy">
+                <div class="locale-selectors">
+                    <label for="lang-select" class="visually-hidden">Language</label>
+                    <select id="lang-select" class="locale-select">
+                        <option>English</option>
+                    </select>
+
+                    <label for="currency-select" class="visually-hidden">Currency</label>
+                    <select id="currency-select" class="locale-select">
+                        <option>USD - U.S. Dollar</option>
+                    </select>
+
+                    <label for="country-select" class="visually-hidden">Country</label>
+                    <select id="country-select" class="locale-select">
+                        <option>United States</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION 6 - Footer 2: services, legal links, copyright -->
+        <div class="footer-services" data-section="6">
+
+            <div class="services-grid">
+                <div class="service-item"><span class="service-name">Amazon Music</span><span class="service-desc">Stream millions of songs</span></div>
+                <div class="service-item"><span class="service-name">Amazon Ads</span><span class="service-desc">Reach customers wherever they spend their time</span></div>
+                <div class="service-item"><span class="service-name">6pm</span><span class="service-desc">Score deals on fashion brands</span></div>
+                <div class="service-item"><span class="service-name">AbeBooks</span><span class="service-desc">Books, art &amp; collectibles</span></div>
+                <div class="service-item"><span class="service-name">ACX</span><span class="service-desc">Audiobook Publishing Made Easy</span></div>
+                <div class="service-item"><span class="service-name">Sell on Amazon</span><span class="service-desc">Start a Selling Account</span></div>
+                <div class="service-item"><span class="service-name">Amazon Business</span><span class="service-desc">Everything For Your Business</span></div>
+                <div class="service-item"><span class="service-name">AmazonGlobal</span><span class="service-desc">Ship Orders Internationally</span></div>
+                <div class="service-item"><span class="service-name">Home Services</span><span class="service-desc">Experienced Pros Happiness Guarantee</span></div>
+                <div class="service-item"><span class="service-name">Amazon Web Services</span><span class="service-desc">Scalable Cloud Computing Services</span></div>
+                <div class="service-item"><span class="service-name">Audible</span><span class="service-desc">Listen to Books &amp; Original Audio Performances</span></div>
+                <div class="service-item"><span class="service-name">Box Office Mojo</span><span class="service-desc">Find Movie Box Office Data</span></div>
+                <div class="service-item"><span class="service-name">Goodreads</span><span class="service-desc">Book reviews &amp; recommendations</span></div>
+                <div class="service-item"><span class="service-name">IMDb</span><span class="service-desc">Movies, TV &amp; Celebrities</span></div>
+                <div class="service-item"><span class="service-name">IMDbPro</span><span class="service-desc">Get Info Entertainment Professionals Need</span></div>
+                <div class="service-item"><span class="service-name">Kindle Direct Publishing</span><span class="service-desc">Indie Digital &amp; Print Publishing Made Easy</span></div>
+                <div class="service-item"><span class="service-name">Prime Video Direct</span><span class="service-desc">Video Distribution Made Easy</span></div>
+                <div class="service-item"><span class="service-name">Shopbop</span><span class="service-desc">Designer Fashion Brands</span></div>
+                <div class="service-item"><span class="service-name">Woot!</span><span class="service-desc">Deals and Shenanigans</span></div>
+                <div class="service-item"><span class="service-name">Zappos</span><span class="service-desc">Shoes &amp; Clothing</span></div>
+                <div class="service-item"><span class="service-name">Ring</span><span class="service-desc">Smart Home Security Systems</span></div>
+            </div>
+
+            <div class="legal">
+                <ul class="legal-links">
+                    <li><a href="#">Conditions of Use</a></li>
+                    <li><a href="#">Privacy Notice</a></li>
+                    <li><a href="#">Your Ads Privacy Choices</a></li>
+                </ul>
+                <p class="copyright">&copy; 1996-2026, Amazon.com, Inc. or its affiliates</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

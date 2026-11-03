@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Async Hands-on</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 640px; }
+    section { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+    button { margin: 0.25rem; padding: 0.4rem 0.9rem; font-size: 1rem; cursor: pointer; }
+    .error { color: #b00020; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    /* ================================================================
+       HANDS-ON: Load products asynchronously
+
+       Fill in loadProducts() below. Do NOT change anything else
+       (except the FAIL switch, to test the error case).
+
+       You're done when:
+         1. With FAIL = false: the page shows "Loading…", then the products.
+         2. With FAIL = true:  the page shows "Loading…", then the error.
+       ================================================================ */
+
+    const FAIL = false;   // ← set to true, save and reload to test the error case
+
+
+    // TODO: load the products and update state                (see Slide 4)
+    //   1. setState with status "loading"
+    //   2. const res = await fakeFetch("/api/products")
+    //   3. if (!res.ok) throw an Error with the status code
+    //   4. const products = await res.json()
+    //   5. setState with the products and status "ready"
+    //   6. on any error (catch): setState with status "error" and err.message
+    async function loadProducts() {
+
+    }
+
+
+    /* ================================================================
+       GIVEN CODE: do not change anything below this line
+       ================================================================ */
+
+    // Behaves like fetch(): returns a Promise of a response with ok, status, json()
+    function fakeFetch(url) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          if (FAIL) {
+            resolve({ ok: false, status: 500, json: async () => ({}) });
+          } else {
+            resolve({
+              ok: true,
+              status: 200,
+              json: async () => [
+                { id: 1, name: "Laptop", price: 50000 },
+                { id: 2, name: "Phone",  price: 20000 },
+                { id: 3, name: "Mouse",  price: 500 }
+              ]
+            });
+          }
+        }, 1000);   // 1-second delay, like a slow network
+      });
+    }
+
+    let state = { products: [], status: "idle", error: null };
+
+    function render(state) {
+      let body = "";
+      if (state.status === "idle")    body = `<p>Not loaded yet.</p>`;
+      if (state.status === "loading") body = `<p>Loading…</p>`;
+      if (state.status === "error")   body = `<p class="error">Error: ${state.error}</p>`;
+      if (state.status === "ready")   body = `<ul>${state.products.map(p =>
+                                        `<li>${p.name} — ₹${p.price}</li>`).join("")}</ul>`;
+
+      document.getElementById("app").innerHTML = `
+        <section>
+          <h3>Products</h3>
+          <button data-action="load">Load products</button>
+          ${body}
+        </section>
+      `;
+    }
+
+    function setState(next) {
+      if (Object.is(state, next)) return;
+      state = next;
+      render(state);
+    }
+
+    document.getElementById("app").addEventListener("click", e => {
+      if (e.target.dataset.action === "load") loadProducts();
+    });
+
+    render(state);
+    loadProducts();   // load once when the page opens
+  </script>
+</body>
+</html>

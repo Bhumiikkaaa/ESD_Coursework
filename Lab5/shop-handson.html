@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Hands-on</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 640px; }
+    section { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+    button { margin: 0.25rem; padding: 0.4rem 0.9rem; font-size: 1rem; cursor: pointer; }
+    li { margin: 0.25rem 0; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    /* ================================================================
+       HANDS-ON: Shop functions
+
+       Fill in the three Part A functions, then the three Part B functions.
+       Do NOT change anything else in this file.
+
+       RULE: never modify an input array or object.
+             No push, no splice, no x.price = ...
+             Always return something NEW.
+
+       Check your work: open DevTools → Console and type   checkAll()
+       ================================================================ */
+
+
+    // ===================== PART A: Array warm-up =====================
+    // Test in the console, e.g.  productNames(state.products)
+
+    // TODO 1: return an array of product names            (use map)
+    // productNames(state.products) → ["Laptop", "Phone", "Mouse"]
+    const productNames = (products) => {
+      product.map((p) => p.name);
+    };
+
+    // TODO 2: return products cheaper than max            (use filter)
+    // cheapProducts(state.products, 25000) → [Phone, Mouse]  (the objects)
+    const cheapProducts = (products, max) => {
+      product.filter((p) => p.price < max);
+    };
+
+    // TODO 3: return the product with this id             (use find)
+    // findProduct(state.products, 2) → { id: 2, name: "Phone", price: 20000 }
+    const findProduct = (products, id) => {
+      products.find(p => p.id === id);
+    };
+
+
+    // ===================== PART B: Immutable cart ====================
+    // Test with the Add / Remove buttons on the page.
+
+    // TODO 4: return a NEW cart with product added at the end   (use spread)
+    // addToCart([], Laptop) → [Laptop]
+    const addToCart = (cart, product) => {
+      return [...cart, product];
+    };
+
+    // TODO 5: return a NEW cart without items with this id      (use filter)
+    //         (removes ALL items with that id)
+    // removeFromCart([Laptop, Phone], 1) → [Phone]
+    const removeFromCart = (cart, id) => {
+      cart.filter(p => p.id !== id);
+    };
+
+    // TODO 6: return the total price of the cart                (use reduce)
+    // cartTotal([Laptop, Phone]) → 70000      cartTotal([]) → 0
+    const cartTotal = (cart) => {
+      cart.reduce((sum, p) => sum + p.price, 0);
+    };
+
+
+    /* ================================================================
+       GIVEN CODE: do not change anything below this line
+       ================================================================ */
+
+    let state = {
+      products: [
+        { id: 1, name: "Laptop", price: 50000 },
+        { id: 2, name: "Phone",  price: 20000 },
+        { id: 3, name: "Mouse",  price: 500 }
+      ],
+      cart: []
+    };
+
+    function render(state) {
+      document.getElementById("app").innerHTML = `
+        <section>
+          <h3>Products</h3>
+          ${state.products.map(p =>
+            `<button data-action="add" data-id="${p.id}">Add ${p.name} (₹${p.price})</button>`
+          ).join("")}
+        </section>
+        <section>
+          <h3>Cart (${state.cart.length}) — Total: ₹${cartTotal(state.cart)}</h3>
+          <ul>
+            ${state.cart.map(p =>
+              `<li>${p.name} — ₹${p.price}
+                 <button data-action="remove" data-id="${p.id}">Remove</button></li>`
+            ).join("")}
+          </ul>
+        </section>
+      `;
+    }
+
+    function setState(next) {
+      if (Object.is(state, next)) return;
+      state = next;
+      render(state);
+    }
+
+    // Checks what your Part B functions return before updating state
+    function updateCart(newCart, fnName) {
+      if (!Array.isArray(newCart)) {
+        console.warn(`${fnName} must return an array. It returned:`, newCart);
+        return;
+      }
+      if (newCart === state.cart) {
+        console.warn(`${fnName} returned the SAME array. Return a new one (no push/splice).`);
+      }
+      setState({ ...state, cart: newCart });
+    }
+
+    document.getElementById("app").addEventListener("click", e => {
+      const action = e.target.dataset.action;
+      const id = Number(e.target.dataset.id);
+      if (action === "add") {
+        const product = state.products.find(p => p.id === id);
+        updateCart(addToCart(state.cart, product), "addToCart");
+      }
+      if (action === "remove") {
+        updateCart(removeFromCart(state.cart, id), "removeFromCart");
+      }
+    });
+
+    // Type checkAll() in the console to test all six functions
+    function checkAll() {
+      const [laptop, phone] = state.products;
+      const names = arr => Array.isArray(arr) ? JSON.stringify(arr.map(p => p.name)) : String(arr);
+      const checks = [
+        ["1 productNames", () =>
+          JSON.stringify(productNames(state.products)) === '["Laptop","Phone","Mouse"]'],
+        ["2 cheapProducts", () =>
+          names(cheapProducts(state.products, 25000)) === '["Phone","Mouse"]'],
+        ["3 findProduct", () => {
+          const found = findProduct(state.products, 2);
+          return found !== undefined && found.name === "Phone";
+        }],
+        ["4 addToCart", () => {
+          const cart = [];
+          const result = addToCart(cart, laptop);
+          return names(result) === '["Laptop"]' && cart.length === 0 && result !== cart;
+        }],
+        ["5 removeFromCart", () => {
+          const cart = [laptop, phone];
+          const result = removeFromCart(cart, 1);
+          return names(result) === '["Phone"]' && cart.length === 2 && result !== cart;
+        }],
+        ["6 cartTotal", () =>
+          cartTotal([laptop, phone]) === 70000 && cartTotal([]) === 0]
+      ];
+      for (const [label, test] of checks) {
+        let ok = false;
+        try { ok = test(); } catch (err) { /* treat errors as failures */ }
+        console.log(`${ok ? "✅" : "❌"} ${label}`);
+      }
+    }
+
+    render(state);
+  </script>
+</body>
+</html>

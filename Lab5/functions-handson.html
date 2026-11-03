@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions Hands-on</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 760px; }
+    h2 { margin-bottom: 0.25rem; }
+    p.hint { color: #546E7A; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #DEDFE0; padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+    th { background: #37474F; color: #fff; }
+    td code { font-family: "Courier New", monospace; font-size: 0.95rem; }
+    .ok  { color: #2E7D32; font-weight: 600; }
+    .bad { color: #B71C1C; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h2>Functions hands-on</h2>
+  <p class="hint">Fill in the three functions in this file's &lt;script&gt;, save, and reload the page. Each row turns ✅ when your function is right.</p>
+  <div id="results"></div>
+
+  <script>
+    /* ================================================================
+       HANDS-ON: three small functions
+
+       Fill in the three functions below. Do NOT change anything else.
+       Save the file and reload the page to see your results.
+       ================================================================ */
+
+    const product = { id: 1, name: "Laptop", price: 50000 };
+
+
+    // TODO 1: return the price with a ₹ sign               (arrow function)
+    // formatPrice(product.price) → "₹50000"
+    const formatPrice = (price) => {
+      return  `₹${price}`;
+    };
+
+    // TODO 2: return "<name> — <formatted price>"           (destructure the parameter)
+    // productLabel(product) → "Laptop — ₹50000"
+    function productLabel({ name, price }) {
+      return `${name}—${formatPrice(price)}`;
+    }
+
+    // TODO 3: return a NEW product, price reduced by pct %  (use ...)
+    // applyDiscount(product)     → { id: 1, name: "Laptop", price: 45000 }
+    // applyDiscount(product, 20) → { id: 1, name: "Laptop", price: 40000 }
+    function applyDiscount(product, pct = 10) {
+      const newPrice = product.price - product.price * pct/100;
+      return {...product, price : newPrice};
+    }
+
+
+    /* ================================================================
+       GIVEN CODE: do not change anything below this line
+       ================================================================ */
+
+    function show(value) {
+      if (value === undefined) return "undefined";
+      return JSON.stringify(value);
+    }
+
+    function runChecks() {
+      const original = { id: 1, name: "Laptop", price: 50000 };
+      const checks = [
+        { call: 'formatPrice(product.price)', expected: '"₹50000"',
+          run: () => formatPrice(original.price),
+          pass: v => v === "₹50000" },
+        { call: 'productLabel(product)',      expected: '"Laptop — ₹50000"',
+          run: () => productLabel(original),
+          pass: v => v === "Laptop — ₹50000" },
+        { call: 'applyDiscount(product)',     expected: 'a new product, price 45000',
+          run: () => applyDiscount(original),
+          pass: v => v && v !== original && v.price === 45000 && v.name === "Laptop" && v.id === 1 },
+        { call: 'applyDiscount(product, 20)', expected: 'a new product, price 40000',
+          run: () => applyDiscount(original, 20),
+          pass: v => v && v !== original && v.price === 40000 && v.name === "Laptop" && v.id === 1 },
+        { call: 'product.price (after the calls above)', expected: '50000 (unchanged)',
+          run: () => original.price,
+          pass: v => v === 50000 && typeof applyDiscount(original) === "object" },
+      ];
+
+      const rows = checks.map(c => {
+        let value, ok = false;
+        try { value = c.run(); ok = !!c.pass(value); }
+        catch (err) { value = "Error: " + err.message; }
+        const shown = typeof value === "string" && value.startsWith("Error:") ? value : show(value);
+        return `<tr>
+          <td>${ok ? '<span class="ok">✅</span>' : '<span class="bad">❌</span>'}</td>
+          <td><code>${c.call}</code></td>
+          <td>${c.expected}</td>
+          <td><code>${shown.replace(/</g, "&lt;")}</code></td>
+        </tr>`;
+      }).join("");
+
+      document.getElementById("results").innerHTML = `
+        <table>
+          <tr><th></th><th>Call</th><th>Expected</th><th>Your result</th></tr>
+          ${rows}
+        </table>`;
+    }
+
+    runChecks();
+  </script>
+</body>
+</html>
