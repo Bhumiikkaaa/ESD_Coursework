@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Count: 0</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Counter</h1>
+    <p class="hint">Section 15. Every piece of the page below depends on one number.</p>
+
+    <section class="counter">
+      <p class="big" id="count">0</p>
+      <p id="parity">even</p>
+      <div class="row">
+        <button id="dec" type="button" disabled>− Step</button>
+        <button id="inc" type="button">+ Step</button>
+        <button id="reset" type="button">Reset</button>
+      </div>
+      <label>Step <input id="step" type="number" value="1" min="1"></label>
+    </section>
+  </main>
+  <script type="module" src="counter.js"></script>
+</body>
+</html>

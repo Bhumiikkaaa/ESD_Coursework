@@ -1,0 +1,18 @@
+{
+  "name": "esd-js-lab1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ESD 2026 \u2014 JS Lab 1: Fundamentals of JS for React. Pre-lab exercises, checked by Node's built-in test runner.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node tools/run-tests.js core",
+    "test:stretch": "node tools/run-tests.js stretch",
+    "test:all": "node tools/run-tests.js all",
+    "inlab": "node --test inlab/semester.check.js",
+    "web": "node tools/serve.js",
+    "repl": "node tools/repl.js"
+  }
+}

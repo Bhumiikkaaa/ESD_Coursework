@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add a course — JS Lab 1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Add a course</h1>
+    <p class="hint">The button stays disabled until <strong>every</strong> field is filled and credits is 1–6.</p>
+
+    <form id="add-course" novalidate>
+      <label>Code <input name="code" placeholder="CS610" autocomplete="off"></label>
+      <label>Title <input name="title" placeholder="Compilers" autocomplete="off"></label>
+      <label>Department
+        <select name="department">
+          <option value="">Choose…</option>
+        </select>
+      </label>
+      <label>Credits <input name="credits" type="number" min="1" max="6" placeholder="4"></label>
+      <button type="submit" disabled>Add course</button>
+    </form>
+
+    <p id="status" role="status"></p>
+
+    <h2>Courses you added <span id="count">0</span></h2>
+    <ul id="course-list"></ul>
+  </main>
+
+  <script type="module" src="form.js"></script>
+</body>
+</html>
