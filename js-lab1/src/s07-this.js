@@ -10,6 +10,8 @@ export class PlannerList {
   constructor(owner) {
     this.owner = owner;
     this.ids = [];
+    // bind in constructor so `this` is always the instance
+    this.add = this.add.bind(this);
   }
 
   add(id) {
