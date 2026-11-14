@@ -14,7 +14,7 @@ function render() {
   const count = getCount();
   countEl.textContent = count;
   parityEl.textContent = count % 2 === 0 ? "even" : "odd";
-  dec.disabled = count === 0;
+  dec.disabled = count < getStep();
   document.title = `Count: ${count}`;
 }
 const [getCount, setCount] = useState(0, render);

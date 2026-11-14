@@ -3,7 +3,7 @@
 Pre-lab exercises for JS Lab 1. The full walkthrough is the lab doc:
 **https://esd-ta-sessions.vercel.app/js-react.html** — read it alongside this folder.
 
-No AI for this lab. Type the code yourself.
+
 
 ## Setup (once)
 
