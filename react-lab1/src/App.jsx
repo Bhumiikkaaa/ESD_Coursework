@@ -1,8 +1,9 @@
-// Section 07 and Section 08 — App owns state and handles cell clicks.
+// Section 07, 08 and 09 — App owns the matrix state.
 
 import { useState } from "react";
 import Header from "./Header.jsx";
 import Matrix from "./Matrix.jsx";
+import Stats from "./Stats.jsx";
 import { START, incrementAt } from "./matrix.js";
 
 export default function App() {
@@ -17,7 +18,11 @@ export default function App() {
   return (
     <main className="app">
       <Header />
-      <Matrix matrix={matrix} onIncrement={increment} />
+
+      <div className="board">
+        <Matrix matrix={matrix} onIncrement={increment} />
+        <Stats matrix={matrix} />
+      </div>
     </main>
   );
 }
