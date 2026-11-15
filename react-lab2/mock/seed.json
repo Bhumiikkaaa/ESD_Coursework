@@ -1,0 +1,207 @@
+{
+  "_comment": "Seed data every conforming backend starts with. Passwords are for local development only. seatsLeft is NOT stored: it is capacity minus enrollments. Six courses have capacity 1: five of them are full (filled by riya@esd.local); CS501 still has its one seat.",
+  "users": [
+    {
+      "email": "admin@esd.local",
+      "password": "admin12345",
+      "fullName": "Course Admin",
+      "role": "ADMIN"
+    },
+    {
+      "email": "student@esd.local",
+      "password": "student12345",
+      "fullName": "Sam Student",
+      "role": "STUDENT"
+    },
+    {
+      "email": "riya@esd.local",
+      "password": "riya12345",
+      "fullName": "Riya Sharma",
+      "role": "STUDENT"
+    }
+  ],
+  "courses": [
+    {
+      "code": "CS101",
+      "title": "Programming Fundamentals",
+      "description": "Variables, control flow, functions and testing, in one modern language.",
+      "department": "Computer Science",
+      "credits": 4,
+      "capacity": 34
+    },
+    {
+      "code": "CS201",
+      "title": "Data Structures",
+      "description": "Arrays, lists, trees, hash tables and graphs, and how to choose between them.",
+      "department": "Computer Science",
+      "credits": 4,
+      "capacity": 1
+    },
+    {
+      "code": "CS305",
+      "title": "Database Systems",
+      "description": "Relational modelling, SQL, normalisation, indexing and transactions.",
+      "department": "Computer Science",
+      "credits": 4,
+      "capacity": 12
+    },
+    {
+      "code": "CS402",
+      "title": "Enterprise Software Development",
+      "description": "Building layered web applications: APIs, persistence, security and frontends.",
+      "department": "Computer Science",
+      "credits": 4,
+      "capacity": 3
+    },
+    {
+      "code": "CS501",
+      "title": "Distributed Systems",
+      "description": "Consensus, replication, partitioning and failure in systems of many machines.",
+      "department": "Computer Science",
+      "credits": 4,
+      "capacity": 1
+    },
+    {
+      "code": "EC101",
+      "title": "Digital Logic",
+      "description": "Boolean algebra, combinational and sequential circuits, and finite state machines.",
+      "department": "Electronics",
+      "credits": 3,
+      "capacity": 22
+    },
+    {
+      "code": "EC210",
+      "title": "Signals and Systems",
+      "description": "Continuous and discrete signals, convolution, and the Fourier and Laplace transforms.",
+      "department": "Electronics",
+      "credits": 4,
+      "capacity": 1
+    },
+    {
+      "code": "EC330",
+      "title": "Embedded Systems",
+      "description": "Microcontrollers, interrupts, peripherals and real-time constraints.",
+      "department": "Electronics",
+      "credits": 3,
+      "capacity": 9
+    },
+    {
+      "code": "EC415",
+      "title": "VLSI Design",
+      "description": "CMOS design, layout, timing and the flow from RTL to silicon.",
+      "department": "Electronics",
+      "credits": 4,
+      "capacity": 14
+    },
+    {
+      "code": "MA101",
+      "title": "Linear Algebra",
+      "description": "Vectors, matrices, linear maps, eigenvalues and least squares.",
+      "department": "Mathematics",
+      "credits": 4,
+      "capacity": 41
+    },
+    {
+      "code": "MA202",
+      "title": "Probability and Statistics",
+      "description": "Random variables, distributions, estimation and hypothesis testing.",
+      "department": "Mathematics",
+      "credits": 4,
+      "capacity": 1
+    },
+    {
+      "code": "MA310",
+      "title": "Discrete Mathematics",
+      "description": "Logic, proofs, combinatorics, relations and graphs.",
+      "department": "Mathematics",
+      "credits": 3,
+      "capacity": 27
+    },
+    {
+      "code": "MA405",
+      "title": "Optimization",
+      "description": "Linear, convex and integer optimisation, with applications.",
+      "department": "Mathematics",
+      "credits": 3,
+      "capacity": 18
+    },
+    {
+      "code": "DS101",
+      "title": "Introduction to Data Science",
+      "description": "The data science workflow: cleaning, exploring, visualising and communicating data.",
+      "department": "Data Science & AI",
+      "credits": 3,
+      "capacity": 6
+    },
+    {
+      "code": "DS220",
+      "title": "Machine Learning",
+      "description": "Supervised and unsupervised learning, model evaluation and overfitting.",
+      "department": "Data Science & AI",
+      "credits": 4,
+      "capacity": 1
+    },
+    {
+      "code": "DS330",
+      "title": "Deep Learning",
+      "description": "Neural networks, backpropagation, CNNs, RNNs and transformers.",
+      "department": "Data Science & AI",
+      "credits": 4,
+      "capacity": 2
+    },
+    {
+      "code": "DS440",
+      "title": "Natural Language Processing",
+      "description": "Text processing, embeddings, language models and their evaluation.",
+      "department": "Data Science & AI",
+      "credits": 4,
+      "capacity": 11
+    },
+    {
+      "code": "HS101",
+      "title": "Technical Communication",
+      "description": "Writing and presenting clearly for technical audiences.",
+      "department": "Humanities",
+      "credits": 2,
+      "capacity": 88
+    },
+    {
+      "code": "HS205",
+      "title": "Economics for Engineers",
+      "description": "Markets, costs, pricing and decisions, for engineers.",
+      "department": "Humanities",
+      "credits": 2,
+      "capacity": 1
+    },
+    {
+      "code": "HS310",
+      "title": "Ethics in Technology",
+      "description": "Privacy, fairness, accountability and the social impact of technology.",
+      "department": "Humanities",
+      "credits": 2,
+      "capacity": 30
+    }
+  ],
+  "enrollments": [
+    {
+      "userEmail": "riya@esd.local",
+      "courseCode": "CS201"
+    },
+    {
+      "userEmail": "riya@esd.local",
+      "courseCode": "EC210"
+    },
+    {
+      "userEmail": "riya@esd.local",
+      "courseCode": "MA202"
+    },
+    {
+      "userEmail": "riya@esd.local",
+      "courseCode": "DS220"
+    },
+    {
+      "userEmail": "riya@esd.local",
+      "courseCode": "HS205"
+    }
+  ]
+}

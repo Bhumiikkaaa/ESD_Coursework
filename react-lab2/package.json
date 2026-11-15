@@ -1,0 +1,33 @@
+{
+  "name": "esd-react-lab2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ESD 2026 — React Lab 2: AI-assisted, restrict and judge. A course search built by hand (pre-lab), then a Courses page generated with AI against a contract, audited and fixed.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:stretch": "vitest run --mode stretch",
+    "test:all": "vitest run --mode all",
+    "test:watch": "vitest",
+    "mock": "node mock/server.js"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.6.4",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@vitejs/plugin-react": "5.2.0",
+    "jsdom": "26.1.0",
+    "vite": "7.3.7",
+    "vitest": "3.2.7"
+  }
+}
