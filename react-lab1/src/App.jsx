@@ -1,6 +1,4 @@
-// Section 07, 08 and 09 — App owns the matrix state.
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header.jsx";
 import Matrix from "./Matrix.jsx";
 import Stats from "./Stats.jsx";
@@ -14,6 +12,21 @@ export default function App() {
       incrementAt(currentMatrix, row, col)
     );
   }
+
+  useEffect(() => {
+    async function loadMatrix() {
+      const response = await fetch("/matrix.json");
+
+      if (!response.ok) {
+        throw new Error("Could not load matrix data");
+      }
+
+      const data = await response.json();
+      setMatrix(data);
+    }
+
+    loadMatrix().catch(console.error);
+  }, []);
 
   return (
     <main className="app">
