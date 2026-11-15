@@ -1,4 +1,4 @@
-// Section 06 — compose the matrix from rows and cells.
+// Section 06 and Section 08 — render cells and send click events upwards.
 
 import Cell from "./Cell.jsx";
 
