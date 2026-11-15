@@ -1,0 +1,55 @@
+/* Given. You don't need to change anything here. */
+:root {
+  --ink: #0f1a18;
+  --muted: #5a6b67;
+  --line: #c4cfcb;
+  --teal: #0b5d51;
+  --teal-soft: #e4eeeb;
+  --signal: #f5c518;
+  font-family: system-ui, sans-serif;
+  color: var(--ink);
+  background: #f4f6f5;
+}
+
+body { margin: 2rem; }
+h1 { margin: 0 0 0.25rem; }
+.hint { margin: 0 0 1.5rem; color: var(--muted); }
+
+/* The matrix and the stats sit side by side (they wrap on a narrow screen). */
+.board { display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; }
+
+.matrix { border-collapse: separate; border-spacing: 6px; }
+.matrix td { padding: 0; }
+
+.cell {
+  width: 4rem;
+  height: 4rem;
+  font: 600 1.5rem/1 ui-monospace, monospace;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--teal);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cell:hover { background: var(--teal-soft); }
+.cell:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+.cell.max { background: var(--signal); }
+
+.total { color: var(--muted); font: 500 1rem ui-monospace, monospace; padding-left: 0.5rem; }
+.total::before { content: "= "; }
+
+.stats {
+  min-width: 12rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.stats h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+.stats dl { display: grid; grid-template-columns: auto auto; gap: 0.4rem 1.5rem; margin: 0; }
+.stats dt { color: var(--muted); }
+.stats dd { margin: 0; font: 600 1.1rem ui-monospace, monospace; text-align: right; }
+
+.controls { display: flex; gap: 1rem; align-items: center; margin-top: 1.5rem; }
+.controls input { width: 4rem; font: inherit; }
+.controls button { font: inherit; padding: 0.3rem 0.9rem; }
