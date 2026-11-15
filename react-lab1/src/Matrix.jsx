@@ -1,8 +1,11 @@
-// Section 06 and Section 08 — render cells and send click events upwards.
-
 import Cell from "./Cell.jsx";
 
 export default function Matrix({ matrix, onIncrement }) {
+  const values = matrix.flat();
+
+  const max =
+    values.length === 0 ? 0 : Math.max(...values);
+
   return (
     <table className="matrix">
       <tbody>
@@ -14,7 +17,10 @@ export default function Matrix({ matrix, onIncrement }) {
                   row={rowIndex}
                   col={colIndex}
                   value={value}
-                  onClick={() => onIncrement(rowIndex, colIndex)}
+                  isMax={max !== 0 && value === max}
+                  onClick={() =>
+                    onIncrement(rowIndex, colIndex)
+                  }
                 />
               </td>
             ))}

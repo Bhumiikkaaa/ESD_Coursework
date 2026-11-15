@@ -2,15 +2,20 @@ import { useEffect, useState } from "react";
 import Header from "./Header.jsx";
 import Matrix from "./Matrix.jsx";
 import Stats from "./Stats.jsx";
-import { START, incrementAt } from "./matrix.js";
+import { START, incrementAt, zeros } from "./matrix.js";
 
 export default function App() {
   const [matrix, setMatrix] = useState(START);
+  const [step, setStep] = useState(1);
 
   function increment(row, col) {
     setMatrix((currentMatrix) =>
-      incrementAt(currentMatrix, row, col)
+      incrementAt(currentMatrix, row, col, step)
     );
+  }
+
+  function reset() {
+    setMatrix((currentMatrix) => zeros(currentMatrix));
   }
 
   useEffect(() => {
@@ -31,6 +36,21 @@ export default function App() {
   return (
     <main className="app">
       <Header />
+
+      <div className="controls">
+        <label>
+          Step
+          <input
+            type="number"
+            value={step}
+            onChange={(event) =>
+              setStep(Number(event.target.value))
+            }
+          />
+        </label>
+
+        <button onClick={reset}>Reset</button>
+      </div>
 
       <div className="board">
         <Matrix matrix={matrix} onIncrement={increment} />
