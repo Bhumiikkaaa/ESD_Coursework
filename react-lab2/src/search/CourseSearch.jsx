@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useCourseSearch } from "./useCourseSearch.js";
 import { SearchResults } from "./SearchResults.jsx";
+import { useDebounced } from "./useDebounced.js";
 
 export function CourseSearch() {
   const [query, setQuery] = useState("");
-  const { results, status } = useCourseSearch(query);
+  const debouncedQuery = useDebounced(query, 250);
+  const { results, status } = useCourseSearch(debouncedQuery);
 
   return (
     <section>
